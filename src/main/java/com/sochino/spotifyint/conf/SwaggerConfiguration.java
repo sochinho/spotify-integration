@@ -15,7 +15,6 @@ import java.util.Collections;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {
-
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -28,11 +27,11 @@ public class SwaggerConfiguration {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "My REST API",
-                "Some custom description of API.",
+                "Spotify Integration Project by Sochinho",
+                "For educational purposes",
                 "API TOS",
                 "Terms of service",
-                new Contact("sochinho", "sochinho", "sochinho(at)hotmail.com"),
+                new Contact("Sochinho", "https://github.com/sochinho", "sochinho(at)..."),
                 "License of API", "API license URL", Collections.emptyList());
     }
 }
