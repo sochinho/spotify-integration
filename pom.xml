@@ -20,20 +20,25 @@
         <swagger-ui.version>2.9.2</swagger-ui.version>
         <jackson.version>2.9.8</jackson.version>
         <friendly-id.version>1.1.0</friendly-id.version>
+        <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
     </properties>
 
     <dependencies>
+
+        <!-- SPRING BOOT STARTER -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- OAUTH2 -->
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
             <version>${oauth2.version}</version>
         </dependency>
 
+        <!-- JACKSON -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -52,17 +57,27 @@
             <version>${jackson.version}</version>
         </dependency>
 
+        <!-- FRIENDLY ID -->
         <dependency>
             <groupId>com.devskiller.friendly-id</groupId>
             <artifactId>friendly-id-spring-boot-starter</artifactId>
             <version>${friendly-id.version}</version>
         </dependency>
 
+        <!-- SWAGGER 2 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+
+        <!-- LOMBOK -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
