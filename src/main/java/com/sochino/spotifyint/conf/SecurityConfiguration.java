@@ -12,7 +12,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/", "/api/spotify/**")
+                .antMatchers("/",
+                        "/webjars/**",
+                        "/swagger-ui.html",
+                        "/configuration/security",
+                        "/swagger-resources",
+                        "/configuration/ui",
+                        "/v2/api-docs",
+                        "/api/spotify/**",
+                        "/actuator/**",
+                        "/api/test/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();

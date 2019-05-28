@@ -2,6 +2,7 @@ package com.sochino.spotifyint.service;
 
 import com.sochino.spotifyint.exception.ErrorMessage;
 import com.sochino.spotifyint.exception.SpotifyServiceException;
+import com.sochino.spotifyint.model.SpotifyAudioAnalysis;
 import com.sochino.spotifyint.model.SpotifyTrack;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,10 @@ import org.springframework.web.client.HttpClientErrorException;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class SpotifyService {
+public class TrackService {
 
     private final String SPOTIFY_GET_TRACKS_URL = "https://api.spotify.com/v1/tracks/";
+    private final String SPOTIFY_AUDIO_ANALYSIS_URL = "https://api.spotify.com/v1/audio-analysis/";
 
     @Qualifier("spotifyOAuth2RestTemplate")
     private final OAuth2RestTemplate spotifyOAuth2RestTemplate;
@@ -27,5 +29,11 @@ public class SpotifyService {
         }
     }
 
-
+    public SpotifyAudioAnalysis getAudioAnalysis(String id) throws SpotifyServiceException {
+        try {
+            return spotifyOAuth2RestTemplate.getForObject(SPOTIFY_AUDIO_ANALYSIS_URL + id, SpotifyAudioAnalysis.class);
+        } catch (final HttpClientErrorException e) {
+            throw new SpotifyServiceException(ErrorMessage.SPOTIFY_API_GET_TRACK_AUDIO_ANALYSIS_ERROR);
+        }
+    }
 }
